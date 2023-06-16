@@ -1,3 +1,6 @@
+import { ISideNavOpt } from 'hoc/sidenav/sidenav.interface';
+import { DashboardIcon, GoalsIcon, TrainingIcon } from 'shared/components/icons/icons';
+
 const FIRST_LEVEL_BREADCRUMBS = [{ name: 'home', link: '/' }];
 
 const NUMBER_REGEX = /[0-9]*\.?[0-9]*$/;
@@ -15,11 +18,30 @@ enum HASHTAG {
 	'meta_description' = 'Meta Description'
 }
 
+const SIDE_NAV_OPTIONS: ISideNavOpt[] = [
+	{
+		SvgIcon: DashboardIcon,
+		urlLink: '',
+		title: 'Dashboard'
+	},
+	{
+		SvgIcon: TrainingIcon,
+		urlLink: 'training',
+		title: 'Training'
+	},
+	{
+		SvgIcon: GoalsIcon,
+		urlLink: 'goals',
+		title: 'Goals'
+	}
+];
+
 export {
 	FIRST_LEVEL_BREADCRUMBS,
 	NUMBER_REGEX,
 	PASSWORD_VALIDATOR_REGEX,
 	EMAIL_VALIDATOR_REGEX,
 	DATE_AND_TIME_REGEX,
-	HASHTAG
+	HASHTAG,
+	SIDE_NAV_OPTIONS
 };

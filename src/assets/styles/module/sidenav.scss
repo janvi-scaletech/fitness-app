@@ -1,0 +1,229 @@
+@import '/src/assets/styles/variable';
+@import '/src/assets/styles/common/function.scss';
+
+.navbar-default {
+	.navbar-static-side {
+		width: 70px;
+		transition: all 0.3s ease-in-out;
+		height: 100vh;
+
+		.logo-icon {
+			width: 50px;
+			height: 86px;
+		}
+
+		.nav-link {
+			border-left: 4px solid transparent;
+			transition: all 0.3s linear;
+			padding: 10px 3px;
+
+			.nav-link-content {
+				height: 40px;
+				background-color: transparent;
+				transition: all 0.3s ease-in-out;
+
+				svg {
+					padding: 10px 12px 10px 15px;
+
+					path {
+						transition: fill 0.3s ease-in-out;
+					}
+				}
+
+				.menu-label {
+					color: getColor($grey, 700);
+					font-size: 16px;
+					display: none;
+					margin: 0;
+				}
+			}
+
+			&:hover,
+			&:active {
+				border-left: 4px solid $primary;
+				//background-color: getColor($primary-shade, 1);
+				.nav-link-content {
+					svg {
+						path {
+							fill: $primary;
+						}
+					}
+
+					.menu-label {
+						color: $primary;
+					}
+
+					.down-arrow--icon {
+						transition: all 0.3s ease-in-out;
+
+						path {
+							fill: transparent;
+						}
+					}
+				}
+			}
+		}
+
+		.parent-navlink-wrapper {
+			position: relative;
+
+			.child-navlink-wrapper {
+				display: none;
+
+				.child-nav-link {
+					border-left: none;
+					padding: 0 0 0 30px;
+
+					.nav-link-content {
+						height: 35px;
+
+						.child-menu-label {
+							font-size: 14px;
+							padding-left: 20px;
+						}
+					}
+
+					&:hover,
+					&:active {
+						.nav-link-content {
+							svg {
+								path {
+									fill: $primary;
+								}
+							}
+
+							.menu-label {
+								color: $primary;
+							}
+						}
+					}
+				}
+			}
+
+			.down-arrow--icon {
+				width: 12px;
+				fill: transparent;
+			}
+
+			&:hover {
+				.collapsible-child-navlink-wrapper {
+					display: block;
+					position: absolute;
+					width: 200px;
+					z-index: 2;
+					background-color: $white;
+					top: 0;
+					left: 65px;
+					border-radius: 0 4px 4px 0;
+					box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.25) 4px 2px 4px -3px;
+
+					.child-nav-link {
+						padding-left: 0;
+
+						.nav-link-content {
+							border-radius: 0;
+							padding: 10px 0;
+							background-color: transparent;
+
+							.child-menu-label {
+								display: block;
+								color: $primary;
+							}
+						}
+
+						&:hover {
+							.nav-link-content {
+								//background-color: getColor($primary-shade, 1);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.active-child-menu,
+		.active-menu {
+			.nav-link-content {
+				svg {
+					path {
+						fill: $primary;
+					}
+				}
+
+				.menu-label {
+					color: $primary;
+					font-weight: $font-semi-bold;
+				}
+			}
+		}
+
+		.parent-active-menu,
+		.active-menu {
+			border-left: 4px solid $primary;
+		}
+
+		.parent-active-menu {
+			//background-color: getColor($primary-shade, 1);
+
+			.down-arrow--icon {
+				transform: rotate(180deg);
+			}
+		}
+
+		&.collapsed {
+			width: 200px;
+
+			.nav-link {
+				.menu-label {
+					display: block;
+				}
+			}
+
+			.parent-navlink-wrapper {
+				.child-navlink-wrapper {
+					display: block;
+				}
+
+				&:hover {
+					.child-navlink-wrapper {
+						position: relative;
+					}
+				}
+			}
+		}
+	}
+
+	.collapse-icon {
+		position: absolute;
+		top: 115px;
+		left: 180px;
+		z-index: 2;
+		width: 30px;
+		height: 30px;
+		background: $primary;
+		border-radius: 5px;
+		transition: all 0.3s ease-in-out;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		svg {
+			width: 20px;
+			height: 20px;
+			transition: all 0.3s ease-in-out;
+			path {
+				fill: $white;
+			}
+		}
+	}
+	.rotate-collapse-icon {
+		left: 50px;
+
+		svg {
+			transform: rotate(180deg);
+		}
+	}
+
+	.icons {
+		margin-top: 60px;
+	}
+}

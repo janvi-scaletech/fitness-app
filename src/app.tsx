@@ -8,6 +8,7 @@ import ResetPassword from 'features/auth/component/resetPassword';
 
 import { IState } from 'shared/interface/state';
 import Layout from 'hoc/layout/layout';
+import DashboardContainer from 'features/dashboard/container/dashboardContainer';
 
 const App: React.FC = () => {
 	const isLogin: boolean = useSelector((state: IState) => state.auth.isLogin);
@@ -16,7 +17,7 @@ const App: React.FC = () => {
 		return (
 			<Layout>
 				<Routes>
-					<Route path='/' />
+					<Route path='/dashboard' element={<DashboardContainer />} />
 				</Routes>
 			</Layout>
 		);
