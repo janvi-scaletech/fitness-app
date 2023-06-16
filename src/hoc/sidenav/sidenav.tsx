@@ -1,10 +1,10 @@
 import { FC, Fragment, useState } from 'react';
+import Lottie from 'react-lottie';
 import { NavLink, useLocation } from 'react-router-dom';
-import { DownArrow, SideNavArrowIcon } from 'shared/components/icons/icons';
+import { SideNavArrowIcon } from 'shared/components/icons/icons';
 import { SIDE_NAV_OPTIONS } from 'shared/constants/constants';
+import fitnessLogo from 'assets/lotties/gym-animation.json';
 import '../../assets/styles/module/sidenav.scss';
-//import fitnessLogo from 'assets/lotties/gym-animation.json';
-//import Lottie from 'react-lottie';
 
 const SideNav: FC = () => {
 	const [sidebarOpen, setSideBarOpen] = useState(true);
@@ -13,11 +13,11 @@ const SideNav: FC = () => {
 	const location = useLocation();
 	const activeMenu = location.pathname.split('/')[1];
 
-	//const defaultOptions = {
-	//	loop: true,
-	//	autoplay: true,
-	//	animationData: fitnessLogo
-	//};
+	const defaultOptions = {
+		loop: true,
+		autoplay: true,
+		animationData: fitnessLogo
+	};
 
 	return (
 		<nav className='navbar-default' role='navigation'>
@@ -27,7 +27,7 @@ const SideNav: FC = () => {
 				}`}
 			>
 				<NavLink className='ml--10' to='/dashboard'>
-					{/*<Lottie options={defaultOptions} height={50} width={50} />*/}
+					<Lottie options={defaultOptions} height={100} width={100} />
 				</NavLink>
 				<div
 					className={`collapse-icon cursor-pointer ${sidebarOpen ? '' : 'rotate-collapse-icon'}`}
