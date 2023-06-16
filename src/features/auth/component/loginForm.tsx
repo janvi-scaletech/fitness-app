@@ -30,7 +30,7 @@ const LoginForm: React.FC = () => {
 					setLoading(false);
 					res.data && AuthService.setAuthData(res.data.token);
 					dispatch(createAction(actionTypes.AUTH_SUCCESS));
-					dispatch(createAction(actionTypes.UPDATE_USER_DATA, res.data));
+					//dispatch(createAction(actionTypes.UPDATE_USER_DATA, res.data));
 				})
 				.catch((err: Error) => {
 					setLoading(false);

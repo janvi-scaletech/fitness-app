@@ -140,7 +140,7 @@ export const GoalsIcon: FC<IIconProps> = ({ height, width, className }) => (
 		height={height || '24'}
 		className={className || ''}
 		viewBox='0 0 122.88 119.853'
-		enable-background='new 0 0 122.88 119.853'
+		enableBackground='new 0 0 122.88 119.853'
 		xmlSpace='preserve'
 	>
 		<g>

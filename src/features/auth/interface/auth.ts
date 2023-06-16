@@ -11,9 +11,9 @@ export interface ILoginResponse {
 export interface IUserData {
 	id: string;
 	email: string;
-	role: string;
-	status: string;
-	avatar: string | null;
 	name: string;
 	token: string;
+	age: number;
+	height: number;
+	weight: number;
 }

@@ -38,7 +38,6 @@ const SideNav: FC = () => {
 				<div className='cursor-pointer d--flex flex--column icons'>
 					{SIDE_NAV_OPTIONS.map((data, index) => {
 						const { SvgIcon, urlLink, title } = data;
-						console.log('SvgIcon', SvgIcon);
 						return (
 							<Fragment key={index}>
 								<NavLink
