@@ -6,6 +6,7 @@
 		width: 70px;
 		transition: all 0.3s ease-in-out;
 		height: 100vh;
+		background-color: #272727;
 
 		.logo-icon {
 			width: 50px;
@@ -40,9 +41,10 @@
 
 			&:hover,
 			&:active {
-				border-left: 4px solid $primary;
+				// border-left: 4px solid $primary;
 				//background-color: getColor($primary-shade, 1);
 				.nav-link-content {
+					border-left: 4px solid $primary;
 					svg {
 						path {
 							fill: $primary;
@@ -221,9 +223,5 @@
 		svg {
 			transform: rotate(180deg);
 		}
-	}
-
-	.icons {
-		margin-top: 60px;
 	}
 }

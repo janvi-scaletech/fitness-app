@@ -26,11 +26,7 @@ const reducer = (state: IAuthState = initialState, action: IAction) => {
 				...state,
 				userData: action.payload
 			};
-		//case actionTypes.USER_DETAILS:
-		//	return {
-		//		...state,
-		//		userDetails: action.payload
-		//	};
+
 		case actionTypes.AUTH_LOGOUT:
 			return {
 				...state,

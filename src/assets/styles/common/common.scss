@@ -633,7 +633,9 @@
 
 /* Flex
 ------------------------------------------------------------------------------*/
-
+.gap-40 {
+	gap: 40px;
+}
 .flex {
 	@extend %flex;
 }
@@ -1200,6 +1202,12 @@
 
 .text--blue {
 	@include getShadesColorClasses($blue, 'color');
+}
+.text--light-grey {
+	color: getColor($grey, 100);
+}
+.text--green {
+	color: #1f9471;
 }
 
 .text--black {

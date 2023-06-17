@@ -1,95 +1,101 @@
-import { FC, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { IState } from 'shared/interface/state';
 import { IUserActivity } from '../interface/dashboard';
 import '../styles/dashboard.scss';
-import { DotIcon } from 'shared/components/icons/icons';
+import WeeklyActivity from './weeklyAcitivity';
+import UserProfile from './userProfile';
+import TodayActivity from './todayActivity';
 
 interface IFitnessActivity {
 	userFitnessActivity: IUserActivity[];
 }
 const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
+	console.log(userFitnessActivity, 'userFitnessActivity');
 	const userData = useSelector((state: IState) => state.auth.userData);
-	const [userDetails, setUserDetails] = useState(userData);
+	console.log('userData', userData);
+	const [greeting, setGreeting] = useState('');
+
+	const ActivityData = userFitnessActivity.map((activity: any) => {
+		return {
+			name: activity.name,
+			duration: activity.duration,
+			calories_burned: activity.calories_burned
+		};
+	});
+
+	console.log('ActivityData', ActivityData);
+
+	const greetingMessage = useCallback(() => {
+		const currentTime = new Date().getHours();
+		if (currentTime >= 0 && currentTime < 12) {
+			setGreeting('Good Morning');
+		} else if (currentTime >= 12 && currentTime < 18) {
+			setGreeting('Good Afternoon');
+		} else {
+			setGreeting('Good Evening');
+		}
+	}, []);
+
+	useEffect(() => {
+		greetingMessage();
+	}, []);
+
+	const weeklyActivity = [
+		{
+			name: userFitnessActivity[1].name,
+			duration: userFitnessActivity[1].duration,
+			calories: userFitnessActivity[1].calories_burned,
+			className: '',
+			svgIcon: ''
+		},
+		{
+			name: userFitnessActivity[3].name,
+			duration: userFitnessActivity[3].duration,
+			calories: userFitnessActivity[3].calories_burned,
+			className: '',
+			svgIcon: ''
+		},
+		{
+			name: userFitnessActivity[8].name,
+			duration: userFitnessActivity[8].duration,
+			calories: userFitnessActivity[8].calories_burned,
+			className: '',
+			svgIcon: ''
+		}
+	];
+	const userActivity = [
+		{
+			name: userFitnessActivity[12].name,
+			duration: userFitnessActivity[12].duration,
+			className: 'blue-color-dot'
+		},
+		{
+			name: userFitnessActivity[2].name,
+			duration: userFitnessActivity[2].duration,
+			className: 'green-color-dot'
+		},
+		{
+			name: userFitnessActivity[5].name,
+			duration: userFitnessActivity[5].duration,
+			className: 'orange-color-dot'
+		}
+	];
+
 	return (
 		<div className='dashboard-container flex'>
 			<div className='dashboard-wrapper'>
-				<p>Good morning</p>
-				<h3>Welcome {userDetails.name}</h3>
-
+				<p className='font-size--24 ml--20'>Dashboard</p>
+				<div className='user-title-wrapper mb--30 mt--30 mr--20 ml--20'>
+					<p>{greeting}</p>
+					<h3 className='font-size--lg'>Welcome {userData.name}</h3>
+				</div>
 				<div className='flex'>
-					<div className='activity-wrapper width--full'>
-						<h3 className='font-size--24 line-height--32'>Today's Activity</h3>
-
-						<div className='activity-details-wrapper flex'>
-							<DotIcon />
-							<div>
-								<h3 className='font-size--xxl'>CrossFit</h3>
-								<p>50 min</p>
-							</div>
-						</div>
-						<div className='activity-details-wrapper flex'>
-							<DotIcon />
-							<div>
-								<h3 className='font-size--xxl'>CrossFit</h3>
-								<p>50 min</p>
-							</div>
-						</div>
-						<div className='activity-details-wrapper flex'>
-							<DotIcon />
-							<div>
-								<h3 className='font-size--xxl'>CrossFit</h3>
-								<p>50 min</p>
-							</div>
-						</div>
-					</div>
-
-					<div className='weekly-data-wrapper width--full '>
-						<div className='flex align-items--center justify-content--between mt--20'>
-							<h3 className='font-size--xxl'>Weekly Challenge</h3>
-							<p className=''>View More</p>
-						</div>
-						<div className='weekly-fitness-details flex mt--30 justify-content--between'>
-							<div className='img-wrapper'>
-								<img />
-							</div>
-							<div>
-								<h3 className='font-size--xxl'>Yoga</h3>
-								<p>60 min | 120 Kcal/Hour</p>
-							</div>
-							<div className='btn-wrapper'>
-								<button className='button-info'>Try it Now</button>
-							</div>
-						</div>
-					</div>
+					<TodayActivity userActivity={userActivity} />
+					<WeeklyActivity weeklyActivity={weeklyActivity} />
 				</div>
 			</div>
-			<div className='profile-container'>
-				<h3 className='font-size--xxl pl--20 pt--20'>My profile</h3>
-				<div className='profile-wrapper m--0-auto'>
-					{/* <div className='progress-bar-container'>
-						<div className='progress-bar css'>
-							<progress id='css' max='100' value='87'></progress>
-						</div>
-					</div> */}
-					<image className='profile-img' />
-				</div>
-				<p className='text--center mb--20'>Janvi Kalavadiya</p>
-				<div className='user-details flex justify-content--around align-items--center'>
-					<div>
-						<p>Weight</p>
-						<h3 className='font-size--xxl'>56</h3>
-					</div>
-					<div>
-						<p>Height</p>
-						<h3 className='font-size--xxl'>156</h3>
-					</div>
-					<div>
-						<p>Age</p>
-						<h3 className='font-size--xxl'>24</h3>
-					</div>
-				</div>
-			</div>
+			<UserProfile userData={userData} />
 		</div>
 	);
 };

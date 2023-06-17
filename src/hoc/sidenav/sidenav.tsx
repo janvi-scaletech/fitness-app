@@ -21,11 +21,7 @@ const SideNav: FC = () => {
 
 	return (
 		<nav className='navbar-default' role='navigation'>
-			<div
-				className={`navbar-static-side bg--white d--flex flex--column full--height ${
-					sidebarOpen ? 'collapsed' : ''
-				}`}
-			>
+			<div className={`navbar-static-side  d--flex flex--column full--height ${sidebarOpen ? 'collapsed' : ''}`}>
 				<NavLink className='ml--10' to='/dashboard'>
 					<Lottie options={defaultOptions} height={100} width={100} />
 				</NavLink>
