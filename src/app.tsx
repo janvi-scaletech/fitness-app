@@ -13,7 +13,7 @@ import DashboardContainer from 'features/dashboard/container/dashboardContainer'
 const App: React.FC = () => {
 	const isLogin: boolean = useSelector((state: IState) => state.auth.isLogin);
 
-	if (isLogin) {
+	if (!isLogin) {
 		return (
 			<Layout>
 				<Routes>

@@ -3,7 +3,7 @@ import Lottie from 'react-lottie';
 import { NavLink, useLocation } from 'react-router-dom';
 import { SideNavArrowIcon } from 'shared/components/icons/icons';
 import { SIDE_NAV_OPTIONS } from 'shared/constants/constants';
-import fitnessLogo from 'assets/lotties/gym-animation.json';
+import fitnessLogo from 'assets/lotties/fitness-animation.json';
 import '../../assets/styles/module/sidenav.scss';
 
 const SideNav: FC = () => {

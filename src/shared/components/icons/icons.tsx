@@ -148,3 +148,14 @@ export const GoalsIcon: FC<IIconProps> = ({ height, width, className }) => (
 		</g>
 	</svg>
 );
+
+export const DotIcon: FC<IIconProps> = ({ height, width, className }) => (
+	<svg width={width || '24'} height={height || '24'} className={className || ''} viewBox='0 0 16 16' fill='none'>
+		<path
+			fill='#4f75fc'
+			fill-rule='evenodd'
+			d='M8 3a5 5 0 100 10A5 5 0 008 3zm0 1.5v7a3.5 3.5 0 100-7z'
+			clipRule='evenodd'
+		/>
+	</svg>
+);
