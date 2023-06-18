@@ -18,7 +18,7 @@ const App: React.FC = () => {
 		return (
 			<Layout>
 				<Routes>
-					<Route path='/dashboard' element={<DashboardContainer />} />
+					<Route path='/' element={<DashboardContainer />} />
 					<Route path='/activity' element={<ActivityContainer />} />
 				</Routes>
 			</Layout>

@@ -21,7 +21,7 @@ enum HASHTAG {
 const SIDE_NAV_OPTIONS: ISideNavOpt[] = [
 	{
 		SvgIcon: DashboardIcon,
-		urlLink: '/dashboard',
+		urlLink: '/',
 		title: 'Dashboard'
 	},
 	{

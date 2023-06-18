@@ -32,8 +32,9 @@
 				}
 
 				.menu-label {
-					color: getColor($grey, 700);
+					color: $white;
 					font-size: 16px;
+					font-weight: 600;
 					display: none;
 					margin: 0;
 				}

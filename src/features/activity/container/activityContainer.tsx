@@ -9,7 +9,7 @@ const ActivityContainer = () => {
 
 	return (
 		<div className='user-activity-container'>
-			<p className='font-size--24 ml--20'>Activity List</p>
+			<p className='font-size--24 ml--20 mt--20'>Activity List</p>
 			<div className='flex flex--wrap '>
 				{userActivityData.map((activityList) => {
 					console.log('activityList', activityList);
