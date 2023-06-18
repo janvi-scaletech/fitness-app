@@ -14,8 +14,8 @@ import CalImg from 'assets/images/flame.png';
 import StepImg from 'assets/images/walking.png';
 import HeartImg from 'assets/images/heart-attack.png';
 import ElevationImg from 'assets/images/fitness.png';
-import '../styles/dashboard.scss';
 import Spinner from 'shared/components/spinner/spinner';
+import '../styles/dashboard.scss';
 
 interface IFitnessActivity {
 	userFitnessActivity: IUserActivity[];
