@@ -1,21 +1,14 @@
+@import '../../../assets/styles/variable';
+
 .dashboard-container {
 	.dashboard-wrapper {
 		width: 85%;
 		.activity-wrapper {
-			background: #ffffff;
-			box-shadow: 0px 4px 14px rgba(98, 53, 226, 0.1);
-			border-radius: 15px;
+			@extend .box-wrapper;
 			color: black;
 			padding: 20px;
 			width: 45%;
 			margin: 0 20px;
-
-			.today-activity-wrapper {
-				width: 100px;
-				height: 100px;
-				background-color: aliceblue;
-				border-radius: 50%;
-			}
 
 			.green-color-dot {
 				path {
@@ -29,9 +22,7 @@
 			}
 		}
 		.activity-list-wrapper {
-			background: #ffffff;
-			box-shadow: 0px 4px 14px rgba(98, 53, 226, 0.1);
-			border-radius: 15px;
+			@extend .box-wrapper;
 			color: black;
 			padding: 10px;
 			margin: 10px;
@@ -42,16 +33,12 @@
 			}
 		}
 		.line-chart-wrapper {
-			background: #ffffff;
-			box-shadow: 0px 4px 14px rgba(98, 53, 226, 0.1);
-			border-radius: 15px;
+			@extend .box-wrapper;
 			margin: 0 10px 30px 20px;
 		}
 
 		.weekly-data-wrapper {
-			background: #ffffff;
-			box-shadow: 0px 4px 14px rgba(98, 53, 226, 0.1);
-			border-radius: 15px;
+			@extend .box-wrapper;
 			color: black;
 			padding: 20px;
 			width: 45%;
@@ -69,57 +56,41 @@
 						color: #1f9471;
 						background: transparent;
 						border: 1px solid #ddd;
-						font-weight: 500;
 					}
 				}
 			}
 		}
 		.user-title-wrapper {
-			background-color: #ffffff;
-			box-shadow: 0px 4px 14px rgba(98, 53, 226, 0.1);
-			border-radius: 15px;
+			@extend .box-wrapper;
 			padding: 20px;
 		}
 	}
 	.profile-container {
 		width: 30%;
-		background-color: #ffffff;
+		background-color: $white;
 		.profile-wrapper {
 			width: 100px;
 			height: 100px;
-			border-radius: 50%;
-
-			.profile-img {
-				border-radius: 50%;
-			}
 		}
 		.food-details-wrapper {
-			background-color: #ffffff;
-			box-shadow: 0px 4px 14px rgba(98, 53, 226, 0.1);
-			border-radius: 15px;
+			@extend .box-wrapper;
 			padding: 20px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin: 10px;
+			margin: 20px;
 
 			.food-img-wrapper {
 				width: 100px;
 				height: 100px;
-				border-radius: 50%;
-
-				.food-img {
-					border-radius: 50%;
-				}
 			}
 		}
 		.user-details {
-			background: #ffffff;
-			box-shadow: 0px 4px 14px rgba(98, 53, 226, 0.1);
-			border-radius: 15px;
+			@extend .box-wrapper;
 			padding: 10px;
 			width: 70%;
-			margin: 0 auto;
 		}
+	}
+	.box-wrapper {
+		background: #ffffff;
+		box-shadow: 0px 4px 14px rgba(98, 53, 226, 0.1);
+		border-radius: 15px;
 	}
 }

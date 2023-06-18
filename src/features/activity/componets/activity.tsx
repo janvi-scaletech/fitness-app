@@ -1,6 +1,5 @@
-import React from 'react';
-import fitnessData from 'assets/JSON/fitness.json';
 import { useParams } from 'react-router-dom';
+import fitnessData from 'assets/JSON/fitness.json';
 import ActivityChart from './activityChart';
 
 const Activity = () => {
@@ -9,7 +8,7 @@ const Activity = () => {
 		(activityData) => activityData.id === activityId.activityId
 	);
 
-	const activityData = fitnessData.activities.map((activity: any) => {
+	const activityData = fitnessData.activities.map((activity) => {
 		return {
 			name: activity.name,
 			duration: activity.duration,

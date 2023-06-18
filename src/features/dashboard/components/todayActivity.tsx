@@ -1,10 +1,11 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Lottie from 'react-lottie';
-import { DotIcon } from 'shared/components/icons/icons';
 import circleAnimation from 'assets/lotties/circle-progress.json';
+import { DotIcon } from 'shared/components/icons/icons';
+import { IIUserActivity } from '../interface/dashboard';
 
 interface ITodayActivity {
-	userActivity: any;
+	userActivity: IIUserActivity[];
 }
 const TodayActivity: FC<ITodayActivity> = ({ userActivity }) => {
 	const defaultOptions = {
@@ -19,7 +20,7 @@ const TodayActivity: FC<ITodayActivity> = ({ userActivity }) => {
 				<Lottie options={defaultOptions} height={150} width={150} />
 				<div>
 					{userActivity &&
-						userActivity.map(({ name, duration, className }: any, index: number) => {
+						userActivity.map(({ name, duration, className }, index: number) => {
 							return (
 								<div key={index} className='activity-details-wrapper flex mb--20'>
 									<DotIcon className={`${className}`} />

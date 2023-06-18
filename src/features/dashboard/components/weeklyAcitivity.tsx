@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IWeeklyProps } from '../interface/dashboard';
+
 interface IWeeklyActivity {
-	weeklyActivity: any;
+	weeklyActivity: IWeeklyProps[];
 }
 const WeeklyActivity: FC<IWeeklyActivity> = ({ weeklyActivity }) => {
 	const navigate = useNavigate();
 	const handleOnClick = (activityId: string) => {
-		console.log('activityId', activityId);
 		navigate(`/activity/${activityId}`);
 	};
 	return (
@@ -21,7 +22,7 @@ const WeeklyActivity: FC<IWeeklyActivity> = ({ weeklyActivity }) => {
 				</button>
 			</div>
 			{weeklyActivity &&
-				weeklyActivity.map((activity: any) => {
+				weeklyActivity.map((activity) => {
 					const { name, duration, calories, id, svgIcon } = activity;
 
 					return (
@@ -36,7 +37,7 @@ const WeeklyActivity: FC<IWeeklyActivity> = ({ weeklyActivity }) => {
 								</p>
 							</div>
 							<div className='btn-wrapper' onClick={() => handleOnClick(id)}>
-								<button className='button-info font-size--sm'>Try it Now</button>
+								<button className='button-info font-size--sm font--medium'>Try it Now</button>
 							</div>
 						</div>
 					);

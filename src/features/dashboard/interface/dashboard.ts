@@ -47,3 +47,23 @@ export interface ILineChartData {
 		borderDashOffset: number;
 	}[];
 }
+export interface IWeeklyProps {
+	name: string;
+	duration: number | undefined;
+	calories: number | undefined;
+	className: string;
+	svgIcon: string | undefined;
+	id: string;
+}
+export interface IIUserActivity {
+	name: string;
+	duration: number | undefined;
+	className: string;
+}
+
+export interface IActivityData {
+	name: string;
+	duration: number | undefined;
+	calories_burned: number | undefined;
+	heartbeat: IHeartRate | undefined;
+}

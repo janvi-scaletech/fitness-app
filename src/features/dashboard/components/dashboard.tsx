@@ -1,29 +1,29 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import Lottie from 'react-lottie';
+import runIcon from 'assets/lotties/fitness.json';
 import { IState } from 'shared/interface/state';
-import { IUserActivity } from '../interface/dashboard';
-import '../styles/dashboard.scss';
+
+import { IActivityData, IIUserActivity, IUserActivity, IWeeklyProps } from '../interface/dashboard';
 import WeeklyActivity from './weeklyAcitivity';
 import UserProfile from './userProfile';
 import TodayActivity from './todayActivity';
-import Lottie from 'react-lottie';
-import heartbeat from 'assets/lotties/heartbeat.json';
-import runIcon from 'assets/lotties/fitness.json';
 import PlusChart from './plusChart';
+
 import CalImg from 'assets/images/flame.png';
 import StepImg from 'assets/images/walking.png';
 import HeartImg from 'assets/images/heart-attack.png';
 import ElevationImg from 'assets/images/fitness.png';
+import '../styles/dashboard.scss';
 
 interface IFitnessActivity {
 	userFitnessActivity: IUserActivity[];
 }
 const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
-	console.log(userFitnessActivity, 'userFitnessActivity');
 	const userData = useSelector((state: IState) => state.auth.userData);
 	const [greeting, setGreeting] = useState('');
 
-	const activityData = userFitnessActivity.map((activity: any) => {
+	const activityData: IActivityData[] = userFitnessActivity.map((activity) => {
 		return {
 			name: activity.name,
 			duration: activity.duration,
@@ -47,7 +47,7 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 		greetingMessage();
 	}, []);
 
-	const weeklyActivity = [
+	const weeklyActivity: IWeeklyProps[] = [
 		{
 			name: userFitnessActivity[1].name,
 			duration: userFitnessActivity[1].duration,
@@ -73,7 +73,7 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 			id: userFitnessActivity[8].id
 		}
 	];
-	const userActivity = [
+	const userActivity: IIUserActivity[] = [
 		{
 			name: userFitnessActivity[12].name,
 			duration: userFitnessActivity[12].duration,
@@ -91,7 +91,7 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 		}
 	];
 
-	const userDailySteps: any = [
+	const userDailySteps = [
 		{
 			values: userFitnessActivity[1].steps,
 			text: 'Total Steps',
@@ -139,7 +139,7 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 					<PlusChart activityData={activityData} />
 					<div className='flex flex--column'>
 						{userDailySteps &&
-							userDailySteps.map(({ values, text, animation, image }: any, index: number) => {
+							userDailySteps.map(({ values, text, image }, index: number) => {
 								return (
 									<div className='activity-list-wrapper flex' key={index}>
 										<div className='img-wrapper'>

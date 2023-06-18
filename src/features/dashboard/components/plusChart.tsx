@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { ILineChartData } from '../interface/dashboard';
-import { Bar, Line } from 'react-chartjs-2';
+import { FC } from 'react';
+import Lottie from 'react-lottie';
+import { Line } from 'react-chartjs-2';
 import {
 	Chart as ChartJS,
 	CategoryScale,
@@ -12,15 +12,15 @@ import {
 	Legend,
 	Filler
 } from 'chart.js';
-import { LINE_OPTIONS } from '../constants/dashboard.constants';
 import Spinner from 'shared/components/spinner/spinner';
-import Lottie from 'react-lottie';
 import heartbeat from 'assets/lotties/heartbeat.json';
+import { LINE_OPTIONS } from '../constants/dashboard.constants';
+import { IActivityData, ILineChartData } from '../interface/dashboard';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
 
 interface IPlusChartData {
-	activityData: any;
+	activityData: IActivityData[];
 }
 const PlusChart: FC<IPlusChartData> = ({ activityData }) => {
 	const heartData = () => {
@@ -60,12 +60,16 @@ const PlusChart: FC<IPlusChartData> = ({ activityData }) => {
 	return (
 		<div className='line-chart-wrapper'>
 			<Lottie options={defaultOptions} height={50} width={50} />
-			<Line
-				style={{ width: '100%', height: '280px' }}
-				data={chartData}
-				options={LINE_OPTIONS}
-				className='m--30'
-			/>
+			{chartData ? (
+				<Line
+					style={{ width: '100%', height: '280px' }}
+					data={chartData}
+					options={LINE_OPTIONS}
+					className='m--30'
+				/>
+			) : (
+				<Spinner />
+			)}
 		</div>
 	);
 };

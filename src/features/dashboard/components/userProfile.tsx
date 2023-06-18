@@ -10,11 +10,11 @@ const UserProfile: FC<IUserDetails> = ({ userData }) => {
 	return (
 		<div className='profile-container'>
 			<h3 className='font-size--lg pl--20 pt--20 font--semi-bold mb--20'>My profile</h3>
-			<div className='profile-wrapper m--0-auto'>
-				<img className='profile-img width--full height--full' src={ProfileImg} />
+			<div className='profile-wrapper m--0-auto border-radius--half'>
+				<img className='profile-img width--full height--full  border-radius--half' src={ProfileImg} />
 			</div>
 			<p className='font-size--lg text--center mb--20 font--semi-bold'>{userData.name}</p>
-			<div className='user-details flex justify-content--around align-items--center'>
+			<div className='user-details m--0-auto flex justify-content--around align-items--center'>
 				<div>
 					<p className='font-size--xxs text--light-grey'>Weight</p>
 					<p className='font-size--sm font--semi-bold'>{userData.weight} kg</p>
@@ -36,15 +36,15 @@ const UserProfile: FC<IUserDetails> = ({ userData }) => {
 					return (
 						<div>
 							<p className='font-size--browser-default font--medium pl--15 mt--20'>{time}</p>
-							<div className='food-details-wrapper'>
+							<div className='food-details-wrapper flex align-items--center justify-content--between'>
 								<div className='food-details'>
 									<h5 className='font-size--sm font--medium pb--15'>{foodTitle}</h5>
 									<p className='font-size--xxs font--light'>
 										<span className='font--medium'>{numberOfDay}</span> {details}
 									</p>
 								</div>
-								<div className='food-img-wrapper'>
-									<img src={img} className='food-img width--full height--full' />
+								<div className='food-img-wrapper border-radius--half'>
+									<img src={img} className='food-img width--full height--full border-radius--half' />
 								</div>
 							</div>
 						</div>
