@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IWeeklyProps } from '../interface/dashboard';
+import { isEmpty } from 'lodash';
 
 interface IWeeklyActivity {
 	weeklyActivity: IWeeklyProps[];
@@ -21,7 +22,7 @@ const WeeklyActivity: FC<IWeeklyActivity> = ({ weeklyActivity }) => {
 					View More
 				</button>
 			</div>
-			{weeklyActivity &&
+			{!isEmpty(weeklyActivity) &&
 				weeklyActivity.map((activity) => {
 					const { name, duration, calories, id, svgIcon } = activity;
 
@@ -42,6 +43,12 @@ const WeeklyActivity: FC<IWeeklyActivity> = ({ weeklyActivity }) => {
 						</div>
 					);
 				})}
+
+			{isEmpty(weeklyActivity) && (
+				<div className='display-flex-center pb--100'>
+					<h3>No Data Found</h3>
+				</div>
+			)}
 		</div>
 	);
 };

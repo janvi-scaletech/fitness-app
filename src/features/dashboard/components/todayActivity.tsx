@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Lottie from 'react-lottie';
 import circleAnimation from 'assets/lotties/circle-progress.json';
 import { DotIcon } from 'shared/components/icons/icons';
 import { IIUserActivity } from '../interface/dashboard';
+import { isEmpty } from 'lodash';
 
 interface ITodayActivity {
 	userActivity: IIUserActivity[];
@@ -19,7 +20,8 @@ const TodayActivity: FC<ITodayActivity> = ({ userActivity }) => {
 			<div className='flex align-items--center justify-content--between mt--30'>
 				<Lottie options={defaultOptions} height={150} width={150} />
 				<div>
-					{userActivity &&
+					{!isEmpty(userActivity) &&
+						userActivity &&
 						userActivity.map(({ name, duration, className }, index: number) => {
 							return (
 								<div key={index} className='activity-details-wrapper flex mb--20'>
@@ -32,6 +34,12 @@ const TodayActivity: FC<ITodayActivity> = ({ userActivity }) => {
 							);
 						})}
 				</div>
+
+				{isEmpty(userActivity) && (
+					<div className='display-flex-center pb--100'>
+						<h3>No Data Found</h3>
+					</div>
+				)}
 			</div>
 		</div>
 	);

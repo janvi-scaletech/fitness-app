@@ -15,6 +15,7 @@ import StepImg from 'assets/images/walking.png';
 import HeartImg from 'assets/images/heart-attack.png';
 import ElevationImg from 'assets/images/fitness.png';
 import '../styles/dashboard.scss';
+import Spinner from 'shared/components/spinner/spinner';
 
 interface IFitnessActivity {
 	userFitnessActivity: IUserActivity[];
@@ -136,7 +137,7 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 				</div>
 
 				<div className='flex'>
-					<PlusChart activityData={activityData} />
+					{activityData ? <PlusChart activityData={activityData} /> : <Spinner />}
 					<div className='flex flex--column'>
 						{userDailySteps &&
 							userDailySteps.map(({ values, text, image }, index: number) => {
