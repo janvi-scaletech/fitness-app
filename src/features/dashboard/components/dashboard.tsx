@@ -9,6 +9,7 @@ import TodayActivity from './todayActivity';
 import Lottie from 'react-lottie';
 import heartbeat from 'assets/lotties/heartbeat.json';
 import runIcon from 'assets/lotties/run-icon.json';
+import PlusChart from './plusChart';
 
 interface IFitnessActivity {
 	userFitnessActivity: IUserActivity[];
@@ -18,11 +19,12 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 	const userData = useSelector((state: IState) => state.auth.userData);
 	const [greeting, setGreeting] = useState('');
 
-	const ActivityData = userFitnessActivity.map((activity: any) => {
+	const activityData = userFitnessActivity.map((activity: any) => {
 		return {
 			name: activity.name,
 			duration: activity.duration,
-			calories_burned: activity.calories_burned
+			calories_burned: activity.calories_burned,
+			heartbeat: activity.heart_rate
 		};
 	});
 
@@ -112,20 +114,23 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 					<h3 className='font-size--lg'>Welcome {userData.name}</h3>
 				</div>
 				<div className='flex'>
-					{userDailySteps &&
-						userDailySteps.map(({ values, text, animation }: any, index: number) => {
-							return (
-								<div className='activity-list-wrapper flex' key={index}>
-									<div className='img-wrapper'>
-										{/* <Lottie options={defaultOptions} height={50} width={50} /> */}
+					<PlusChart activityData={activityData} />
+					<div className='flex flex--column'>
+						{userDailySteps &&
+							userDailySteps.map(({ values, text, animation }: any, index: number) => {
+								return (
+									<div className='activity-list-wrapper flex' key={index}>
+										<div className='img-wrapper'>
+											{/* <Lottie options={defaultOptions} height={50} width={50} /> */}
+										</div>
+										<div className='ml--30'>
+											<h3 className='font-size--browser-default font--semi-bold'>{values}</h3>
+											<p className='font-size--xxs text--light-grey'>{text}</p>
+										</div>
 									</div>
-									<div className='ml--30'>
-										<h3 className='font-size--browser-default font--semi-bold'>{values}</h3>
-										<p className='font-size--xxs text--light-grey'>{text}</p>
-									</div>
-								</div>
-							);
-						})}
+								);
+							})}
+					</div>
 				</div>
 				<div className='flex'>
 					<TodayActivity userActivity={userActivity} />

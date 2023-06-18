@@ -20,3 +20,29 @@ export interface IPace {
 	average: number;
 	best: number;
 }
+export interface IChartData {
+	labels: string[];
+	datasets: {
+		label: string;
+		data: number[];
+		fill: boolean;
+		backgroundColor: string;
+		borderColor: string;
+		borderWidth: number;
+		barThickness: number;
+		borderRadius: number;
+	}[];
+}
+export interface ILineChartData {
+	labels: string[];
+	datasets: {
+		label: string;
+		data: number[];
+		fill: boolean;
+		backgroundColor: string;
+		borderColor: string;
+		borderWidth: number;
+		borderDash: number[];
+		borderDashOffset: number;
+	}[];
+}
