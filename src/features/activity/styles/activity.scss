@@ -7,9 +7,26 @@
 		padding: 20px;
 		width: 25%;
 		margin: 20px;
-		.img {
-			width: 40px;
-			height: 40px;
-		}
+	}
+}
+.img {
+	width: 40px;
+	height: 40px;
+}
+.activity-data-container {
+	.list-data-wrapper {
+		background: #ffffff;
+		box-shadow: 0px 4px 14px rgba(98, 53, 226, 0.1);
+		border-radius: 15px;
+		color: black;
+		padding: 20px;
+		width: 15%;
+		margin: 20px;
+	}
+	.line-chart-wrapper {
+		background: #ffffff;
+		box-shadow: 0px 4px 14px rgba(98, 53, 226, 0.1);
+		border-radius: 15px;
+		margin: 0 10px 30px 20px;
 	}
 }

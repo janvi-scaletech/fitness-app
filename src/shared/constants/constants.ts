@@ -22,10 +22,12 @@ const SIDE_NAV_OPTIONS: ISideNavOpt[] = [
 	{
 		SvgIcon: DashboardIcon,
 		urlLink: '/',
-		title: 'Dashboard'
+		title: 'Dashboard',
+		className: ''
 	},
 	{
 		SvgIcon: TrainingIcon,
+		className: 'trainingIcon',
 		urlLink: '/activity',
 		title: 'Activity'
 	}

@@ -9,4 +9,5 @@ export interface ISideNavOpt {
 	SvgIcon?: FC<IIconProps>;
 	urlLink: string;
 	title: string;
+	className?: string;
 }

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { IUserData } from 'features/auth/interface/auth';
 import ProfileImg from 'assets/images/profile2.jpg';
+import { FOOD_DATA } from '../constants/dashboard.constants';
 
 interface IUserDetails {
 	userData: IUserData;
@@ -26,6 +27,29 @@ const UserProfile: FC<IUserDetails> = ({ userData }) => {
 					<p className='font-size--xxs text--light-grey'>Age</p>
 					<p className='font-size--sm font--semi-bold'>{userData.age}</p>
 				</div>
+			</div>
+
+			<div>
+				<p className='font-size--22 text--center font--semi-bold mt--30 mb--10'>Recommendation Food</p>
+
+				{FOOD_DATA.map(({ time, numberOfDay, foodTitle, details, img }) => {
+					return (
+						<div>
+							<p className='font-size--browser-default font--medium pl--15 mt--20'>{time}</p>
+							<div className='food-details-wrapper'>
+								<div className='food-details'>
+									<h5 className='font-size--sm font--medium pb--15'>{foodTitle}</h5>
+									<p className='font-size--xxs font--light'>
+										<span className='font--medium'>{numberOfDay}</span> {details}
+									</p>
+								</div>
+								<div className='food-img-wrapper'>
+									<img src={img} className='food-img width--full height--full' />
+								</div>
+							</div>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);

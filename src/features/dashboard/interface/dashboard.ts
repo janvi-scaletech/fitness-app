@@ -9,6 +9,7 @@ export interface IUserActivity {
 	steps?: number;
 	pace?: IPace;
 	elevation_gain?: number;
+	img?: string;
 }
 
 export interface IHeartRate {

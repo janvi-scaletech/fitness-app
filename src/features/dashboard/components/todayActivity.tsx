@@ -1,17 +1,22 @@
 import React, { FC } from 'react';
+import Lottie from 'react-lottie';
 import { DotIcon } from 'shared/components/icons/icons';
+import circleAnimation from 'assets/lotties/circle-progress.json';
 
 interface ITodayActivity {
 	userActivity: any;
 }
 const TodayActivity: FC<ITodayActivity> = ({ userActivity }) => {
+	const defaultOptions = {
+		loop: true,
+		autoplay: true,
+		animationData: circleAnimation
+	};
 	return (
 		<div className='activity-wrapper'>
 			<h3 className='font-size--lg line-height--32 mt--20'>Today's Activity</h3>
 			<div className='flex align-items--center justify-content--between mt--30'>
-				<div className='today-activity-wrapper'>
-					<img />
-				</div>
+				<Lottie options={defaultOptions} height={150} width={150} />
 				<div>
 					{userActivity &&
 						userActivity.map(({ name, duration, className }: any, index: number) => {

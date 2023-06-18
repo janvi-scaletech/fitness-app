@@ -3,7 +3,7 @@ import Lottie from 'react-lottie';
 import { NavLink, useLocation } from 'react-router-dom';
 import { SideNavArrowIcon } from 'shared/components/icons/icons';
 import { SIDE_NAV_OPTIONS } from 'shared/constants/constants';
-import fitnessLogo from 'assets/lotties/fitness-animation.json';
+import fitnessLogo from 'assets/lotties/fitness-loading-spinner.json';
 import '../../assets/styles/module/sidenav.scss';
 
 const SideNav: FC = () => {
@@ -33,7 +33,7 @@ const SideNav: FC = () => {
 				</div>
 				<div className='cursor-pointer d--flex flex--column icons'>
 					{SIDE_NAV_OPTIONS.map((data, index) => {
-						const { SvgIcon, urlLink, title } = data;
+						const { SvgIcon, urlLink, title, className } = data;
 						return (
 							<Fragment key={index}>
 								<NavLink
@@ -43,7 +43,7 @@ const SideNav: FC = () => {
 									onClick={() => setIsChildNavOpen(null)}
 								>
 									<div className='nav-link-content flex full--width align-items--center bg--twilight-blue'>
-										<div>{SvgIcon && <SvgIcon />}</div>
+										<div>{SvgIcon && <SvgIcon className={className} />}</div>
 
 										<p className='menu-label'>{title}</p>
 									</div>

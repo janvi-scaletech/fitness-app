@@ -8,8 +8,12 @@ import UserProfile from './userProfile';
 import TodayActivity from './todayActivity';
 import Lottie from 'react-lottie';
 import heartbeat from 'assets/lotties/heartbeat.json';
-import runIcon from 'assets/lotties/run-icon.json';
+import runIcon from 'assets/lotties/fitness.json';
 import PlusChart from './plusChart';
+import CalImg from 'assets/images/flame.png';
+import StepImg from 'assets/images/walking.png';
+import HeartImg from 'assets/images/heart-attack.png';
+import ElevationImg from 'assets/images/fitness.png';
 
 interface IFitnessActivity {
 	userFitnessActivity: IUserActivity[];
@@ -49,21 +53,24 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 			duration: userFitnessActivity[1].duration,
 			calories: userFitnessActivity[1].calories_burned,
 			className: '',
-			svgIcon: ''
+			svgIcon: userFitnessActivity[1].img,
+			id: userFitnessActivity[1].id
 		},
 		{
 			name: userFitnessActivity[3].name,
 			duration: userFitnessActivity[3].duration,
 			calories: userFitnessActivity[3].calories_burned,
 			className: '',
-			svgIcon: ''
+			svgIcon: userFitnessActivity[3].img,
+			id: userFitnessActivity[3].id
 		},
 		{
 			name: userFitnessActivity[8].name,
 			duration: userFitnessActivity[8].duration,
 			calories: userFitnessActivity[8].calories_burned,
 			className: '',
-			svgIcon: ''
+			svgIcon: userFitnessActivity[8].img,
+			id: userFitnessActivity[8].id
 		}
 	];
 	const userActivity = [
@@ -87,41 +94,56 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 	const userDailySteps: any = [
 		{
 			values: userFitnessActivity[1].steps,
-			text: 'Total Steps'
+			text: 'Total Steps',
+			image: StepImg
 		},
 		{
 			values: userFitnessActivity[1].calories_burned,
-			text: 'Total Calories'
+			text: 'Total Calories',
+			image: CalImg
 		},
 		{
 			values: userFitnessActivity[1].heart_rate?.average,
-			text: 'Heart Rate'
+			text: 'Heart Rate',
+			image: HeartImg
+		},
+		{
+			values: userFitnessActivity[0].elevation_gain,
+			text: 'Elevation gain',
+			image: ElevationImg
 		}
 	];
 
-	// const defaultOptions = {
-	// 	loop: true,
-	// 	autoplay: true,
-	// 	animationData:
-	// };
+	const defaultOptions = {
+		loop: true,
+		autoplay: true,
+		animationData: runIcon
+	};
 
 	return (
 		<div className='dashboard-container flex'>
 			<div className='dashboard-wrapper'>
 				<p className='font-size--24 ml--20 mt--20'>Dashboard</p>
-				<div className='user-title-wrapper mb--30 mt--30 mr--20 ml--20'>
-					<p>{greeting}</p>
-					<h3 className='font-size--lg'>Welcome {userData.name}</h3>
+
+				<div className='user-title-wrapper mb--30 mt--30 mr--20 ml--20 flex align-items--center justify-content--between'>
+					<div>
+						<p>{greeting}</p>
+						<h3 className='font-size--lg'>Welcome {userData.name}</h3>
+					</div>
+					<div>
+						<Lottie options={defaultOptions} height={100} width={100} />
+					</div>
 				</div>
+
 				<div className='flex'>
 					<PlusChart activityData={activityData} />
 					<div className='flex flex--column'>
 						{userDailySteps &&
-							userDailySteps.map(({ values, text, animation }: any, index: number) => {
+							userDailySteps.map(({ values, text, animation, image }: any, index: number) => {
 								return (
 									<div className='activity-list-wrapper flex' key={index}>
 										<div className='img-wrapper'>
-											{/* <Lottie options={defaultOptions} height={50} width={50} /> */}
+											<img src={image} className='width--full height--full' />
 										</div>
 										<div className='ml--30'>
 											<h3 className='font-size--browser-default font--semi-bold'>{values}</h3>

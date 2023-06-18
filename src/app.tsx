@@ -10,6 +10,7 @@ import { IState } from 'shared/interface/state';
 import Layout from 'hoc/layout/layout';
 import DashboardContainer from 'features/dashboard/container/dashboardContainer';
 import ActivityContainer from 'features/activity/container/activityContainer';
+import Activity from 'features/activity/componets/activity';
 
 const App: React.FC = () => {
 	const isLogin: boolean = useSelector((state: IState) => state.auth.isLogin);
@@ -20,6 +21,7 @@ const App: React.FC = () => {
 				<Routes>
 					<Route path='/' element={<DashboardContainer />} />
 					<Route path='/activity' element={<ActivityContainer />} />
+					<Route path='/activity/:activityId' element={<Activity />} />
 				</Routes>
 			</Layout>
 		);
