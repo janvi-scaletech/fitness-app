@@ -11,6 +11,8 @@ import Layout from 'hoc/layout/layout';
 import DashboardContainer from 'features/dashboard/container/dashboardContainer';
 import ActivityContainer from 'features/activity/container/activityContainer';
 import Activity from 'features/activity/componets/activity';
+import UserProfile from 'features/dashboard/components/userProfile';
+import MyProfile from 'features/dashboard/components/myProfile';
 
 const App: React.FC = () => {
 	const isLogin: boolean = useSelector((state: IState) => state.auth.isLogin);
@@ -22,6 +24,7 @@ const App: React.FC = () => {
 					<Route path='/' element={<DashboardContainer />} />
 					<Route path='/activity' element={<ActivityContainer />} />
 					<Route path='/activity/:activityId' element={<Activity />} />
+					<Route path='/profile' element={<MyProfile />} />
 				</Routes>
 			</Layout>
 		);

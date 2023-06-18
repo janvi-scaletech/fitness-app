@@ -38,7 +38,7 @@
 	}
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1250px) {
 	.dashboard-container {
 		.dashboard-wrapper {
 			.activity-wrapper {
@@ -295,6 +295,8 @@
 			}
 			.menu-label {
 				color: $white;
+				margin-bottom: 10px;
+				font-weight: 600;
 			}
 		}
 	}

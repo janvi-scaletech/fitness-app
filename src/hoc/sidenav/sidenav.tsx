@@ -6,7 +6,6 @@ import { SIDE_NAV_OPTIONS } from 'shared/constants/constants';
 import fitnessLogo from 'assets/lotties/fitness-loading-spinner.json';
 import { disableScrolling } from 'shared/util/utility';
 import '../../assets/styles/module/sidenav.scss';
-import { Link } from 'react-router-dom';
 
 const SideNav: FC = () => {
 	const [sidebarOpen, setSideBarOpen] = useState(true);
@@ -21,7 +20,6 @@ const SideNav: FC = () => {
 		autoplay: true,
 		animationData: fitnessLogo
 	};
-	// const activeLink = router.pathname.split('/')[1];
 
 	const handleOpenSideNav = () => {
 		setIsSideNavOpen(true);
@@ -90,18 +88,17 @@ const SideNav: FC = () => {
 										onClick={() => setIsChildNavOpen(null)}
 									>
 										<div className='nav-link-content flex full--width align-items--center bg--twilight-blue'>
-											<div>{SvgIcon && <SvgIcon className={className} />}</div>
 											<p className='menu-label'>{title}</p>
 										</div>
 									</NavLink>
 								</Fragment>
 							))}
-							<div className='nav-link-content flex full--width align-items--center bg--twilight-blue'>
-								<div className='display-flex-center'>
-									<MyProfileIcon className='profile-icon' />
+							<NavLink to={'/profile'}>
+								<div className='nav-link-content flex full--width align-items--center bg--twilight-blue'>
+									<div className='display-flex-center' />
+									<p className='menu-label'>My Profile</p>
 								</div>
-								<p className='menu-label'>My Profile</p>
-							</div>
+							</NavLink>
 						</div>
 					</div>
 				</div>
