@@ -23,7 +23,7 @@ const SideNav: FC = () => {
 		<nav className='navbar-default' role='navigation'>
 			<div className={`navbar-static-side  d--flex flex--column full--height ${sidebarOpen ? 'collapsed' : ''}`}>
 				<NavLink className='ml--10' to='/'>
-					<Lottie options={defaultOptions} height={100} width={100} />
+					<Lottie options={defaultOptions} height={100} width={sidebarOpen ? 100 : 50} />
 				</NavLink>
 				<div
 					className={`collapse-icon cursor-pointer ${sidebarOpen ? '' : 'rotate-collapse-icon'}`}

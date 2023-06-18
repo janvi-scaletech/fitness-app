@@ -32,9 +32,9 @@ const UserProfile: FC<IUserDetails> = ({ userData }) => {
 			<div>
 				<p className='font-size--22 text--center font--semi-bold mt--30 mb--10'>Recommendation Food</p>
 
-				{FOOD_DATA.map(({ time, numberOfDay, foodTitle, details, img }) => {
+				{FOOD_DATA.map(({ time, numberOfDay, foodTitle, details, img }, index) => {
 					return (
-						<div>
+						<div key={index}>
 							<p className='font-size--browser-default font--medium pl--15 mt--20'>{time}</p>
 							<div className='food-details-wrapper flex align-items--center justify-content--between'>
 								<div className='food-details'>

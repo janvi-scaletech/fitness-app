@@ -23,11 +23,11 @@ const WeeklyActivity: FC<IWeeklyActivity> = ({ weeklyActivity }) => {
 				</button>
 			</div>
 			{!isEmpty(weeklyActivity) &&
-				weeklyActivity.map((activity) => {
+				weeklyActivity.map((activity, index) => {
 					const { name, duration, calories, id, svgIcon } = activity;
 
 					return (
-						<div className='weekly-fitness-details flex mt--30 justify-content--between'>
+						<div className='weekly-fitness-details flex mt--30 justify-content--between' key={index}>
 							<div className='img-wrapper'>
 								<img src={svgIcon} className='height--full width--full' />
 							</div>
