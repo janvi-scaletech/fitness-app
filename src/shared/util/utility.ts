@@ -56,3 +56,19 @@ export const generateColor = () => {
 	const RGBColor = `${x} ,${y}, ${z}`;
 	return RGBColor;
 };
+
+export const disableScrolling = (value: boolean) => {
+	//to enable
+	if (value) {
+		document.body.style.width = '100%';
+		document.body.style.position = 'fixed';
+		document.body.style.overflowY = 'auto';
+	}
+	//to disbale
+	else {
+		// document.getElementsByTagName('html')[0].style.overflowY = 'auto';
+		document.body.style.width = '';
+		document.body.style.overflowY = '';
+		document.body.style.position = '';
+	}
+};

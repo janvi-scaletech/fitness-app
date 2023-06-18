@@ -107,3 +107,29 @@ export const DotIcon: FC<IIconProps> = ({ height, width, className }) => (
 		/>
 	</svg>
 );
+
+export const SideNavIcon: FC<IIconProps> = ({ width, height, className }) => (
+	<svg width={width || '20'} height={height || '20'} className={className} viewBox='0 0 28 18' fill='none'>
+		<path d='M1 1H27M5 9H23M1 17H27' stroke='black' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+	</svg>
+);
+
+export const CloseIcon: FC<IIconProps> = (props) => (
+	<svg width='20' height='20' className={props.className || ''} viewBox='0 0 12 12' fill='#fff' version='1.1'>
+		<line x1='1' y1='11' x2='11' y2='1' stroke='white' strokeWidth='2' />
+		<line x1='1' y1='1' x2='11' y2='11' stroke='white' strokeWidth='2' />
+	</svg>
+);
+
+export const MyProfileIcon: FC<IIconProps> = ({ width, height, className }) => (
+	<svg
+		width={width || '24'}
+		height={height || '24'}
+		className={className || ''}
+		data-name='Layer 1'
+		viewBox='0 0 24 24'
+		id='profile'
+	>
+		<path d='M12,2A10,10,0,0,0,4.65,18.76h0a10,10,0,0,0,14.7,0h0A10,10,0,0,0,12,2Zm0,18a8,8,0,0,1-5.55-2.25,6,6,0,0,1,11.1,0A8,8,0,0,1,12,20ZM10,10a2,2,0,1,1,2,2A2,2,0,0,1,10,10Zm8.91,6A8,8,0,0,0,15,12.62a4,4,0,1,0-6,0A8,8,0,0,0,5.09,16,7.92,7.92,0,0,1,4,12a8,8,0,0,1,16,0A7.92,7.92,0,0,1,18.91,16Z' />
+	</svg>
+);

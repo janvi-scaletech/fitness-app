@@ -27,7 +27,7 @@ const Activity = () => {
 					<img src={userActivityDetails?.img} className='img ' />
 				</div>
 			)}
-			<div className='flex flex--wrap'>
+			<div className='user-activity-wrapper flex flex--wrap'>
 				{userActivityDetails?.calories_burned && (
 					<div className='list-data-wrapper'>
 						<p className='font-size--30 font--semi-bold text--center'>

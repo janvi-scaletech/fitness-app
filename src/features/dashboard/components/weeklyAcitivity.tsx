@@ -14,9 +14,9 @@ const WeeklyActivity: FC<IWeeklyActivity> = ({ weeklyActivity }) => {
 	return (
 		<div className='weekly-data-wrapper'>
 			<div className='flex align-items--center justify-content--between mt--20'>
-				<h3 className='font-size--lg font--semi-bold'>Weekly Challenge</h3>
+				<h3 className='weekly-title font-size--lg font--semi-bold'>Weekly Challenge</h3>
 				<button
-					className='no--bg  font-size--sm font--medium text--green'
+					className='view-more-title no--bg font-size--sm font--medium text--green'
 					onClick={() => navigate('/activity')}
 				>
 					View More
@@ -32,8 +32,10 @@ const WeeklyActivity: FC<IWeeklyActivity> = ({ weeklyActivity }) => {
 								<img src={svgIcon} className='height--full width--full' />
 							</div>
 							<div>
-								<h3 className='font-size--browser-default font--semi-bold'>{name}</h3>
-								<p className='font-size--xxs text--light-grey'>
+								<h3 className=' weekly-activity-title font-size--browser-default font--semi-bold'>
+									{name}
+								</h3>
+								<p className='weekly-cal-data font-size--xxs text--light-grey'>
 									{duration} min | {calories} Kcal/Hour
 								</p>
 							</div>

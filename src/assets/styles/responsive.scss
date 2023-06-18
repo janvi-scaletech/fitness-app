@@ -39,6 +39,89 @@
 }
 
 @media screen and (max-width: 1280px) {
+	.dashboard-container {
+		.dashboard-wrapper {
+			.activity-wrapper {
+				width: 35%;
+				margin: 0 10px;
+				.activity-details-wrapper {
+					.activity-details-title {
+						font-size: 14px;
+					}
+					.activity-details-duration {
+						font-size: 10px;
+					}
+				}
+			}
+			.weekly-data-wrapper {
+				width: 35%;
+				.weekly-fitness-details {
+					.weekly-activity-title {
+						font-size: 14px;
+					}
+					.weekly-cal-data {
+						font-size: 10px;
+					}
+					.btn-wrapper {
+						.button-info {
+							font-size: 12px;
+						}
+					}
+				}
+				.view-more-title {
+					font-size: 12px;
+				}
+			}
+			.user-title-wrapper {
+				padding: 10px;
+				margin-top: 15px;
+			}
+			.activity-list-wrapper {
+				margin: 8px;
+				padding: 8px;
+				.activity-list-name {
+					font-size: 12px;
+					.font-size--xxs {
+						font-size: 10px;
+					}
+				}
+			}
+		}
+		.profile-container {
+			width: 30%;
+			.profile-name {
+				font-size: 14px;
+				margin-bottom: 10px;
+			}
+			.user-details {
+				.weight-title {
+					font-size: 10px;
+				}
+				.weight-name {
+					font-size: 12px;
+				}
+			}
+			.main-food-title {
+				margin-top: 15px;
+			}
+			.title {
+				font-size: 12px;
+				margin-top: 10px;
+			}
+			.food-details-wrapper {
+				padding: 10px;
+				margin: 10px;
+				.food-details {
+					.food-title {
+						font-size: 12px;
+					}
+					.food-details-title {
+						font-size: 10px;
+					}
+				}
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 1280px) and (min-width: 1024px) {
@@ -78,6 +161,53 @@
 			}
 		}
 	}
+	.dashboard-container {
+		.dashboard-wrapper {
+			.activity-details-duration {
+				max-width: 560px;
+			}
+			.line-chart-wrapper {
+				width: 390px;
+				height: 260px;
+			}
+			.activity-wrapper {
+				padding: 0px 20px;
+				height: 300px;
+				.activity-title {
+					font-size: 14px;
+				}
+				.activity-info {
+					margin-top: 20px;
+				}
+			}
+			.activity-list-wrapper {
+				.img-wrapper {
+					height: 30px;
+					width: 30px;
+				}
+				.ml--30 {
+					margin-left: 10px;
+				}
+			}
+			.user-title-wrapper {
+				width: 520px;
+			}
+			.weekly-data-wrapper {
+				padding: 0px 20px 10px;
+				.weekly-title {
+					font-size: 14px;
+				}
+				.weekly-fitness-details {
+					margin-top: 20px;
+					.img-wrapper {
+						height: 40px;
+						width: 40px;
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 992px) {
@@ -97,6 +227,84 @@
 	.hide--md {
 		display: block;
 	}
+	.navbar-default {
+		position: absolute;
+		right: 15px;
+		top: 20px;
+	}
+	.dashboard-container {
+		.dashboard-wrapper {
+			width: 100%;
+			.dashboard-title {
+				font-size: 28px;
+				font-weight: 600;
+			}
+			.user-title-wrapper {
+				width: calc(100% - 70px);
+				margin: 20px auto 0 auto;
+			}
+			.data-chart {
+				flex-wrap: wrap;
+				.user-steps-wrapper {
+					margin: 20px auto 0 auto;
+					width: calc(100% - 48px);
+				}
+			}
+			.line-chart-wrapper {
+				width: calc(100% - 50px);
+				height: 100%;
+				margin: 20px auto 0 auto;
+			}
+			.activity-wrapper,
+			.weekly-data-wrapper {
+				width: calc(100% - 90px);
+				margin: 20px auto 0 auto;
+			}
+			.today-activity-wrapper {
+				flex-wrap: wrap;
+			}
+		}
+	}
+	.user-activity-container {
+		.dashboard-title {
+			font-size: 28px;
+			font-weight: 600;
+		}
+		.user-activity-wrapper {
+			justify-content: center;
+		}
+		.activity-list-wrapper {
+			width: 35%;
+		}
+	}
+	.activity-data-container {
+		.list-data-wrapper {
+			width: 20%;
+		}
+		.user-activity-wrapper {
+			justify-content: center;
+		}
+	}
+	.side-nav--option {
+		.nav-link-content {
+			.trainingIcon {
+				fill: #00a5cb;
+			}
+			.profile-icon {
+				fill: #00a5cb;
+			}
+			.menu-label {
+				color: $white;
+			}
+		}
+	}
+}
+@media screen and (max-width: 600px) {
+	.activity-data-container {
+		.list-data-wrapper {
+			width: 30%;
+		}
+	}
 }
 
 @media screen and (max-width: 576px) {
@@ -107,6 +315,25 @@
 	.hide--sm {
 		display: block;
 	}
+	.user-activity-container {
+		.activity-list-wrapper {
+			width: 28%;
+			align-items: center;
+			.font-size--22 {
+				font-size: 16px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 500px) {
+	.user-activity-container {
+		.activity-list-wrapper {
+			width: 80%;
+			.font-size--22 {
+				font-size: 18px;
+			}
+		}
+	}
 }
 @media screen and (max-width: 425px) {
 	.show--xs {
@@ -114,5 +341,10 @@
 	}
 	.hide--xs {
 		display: block;
+	}
+	.activity-data-container {
+		.list-data-wrapper {
+			width: 80%;
+		}
 	}
 }

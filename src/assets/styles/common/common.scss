@@ -1354,3 +1354,14 @@
 	overflow-x: hidden;
 	display: flex;
 }
+.overlay {
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.8);
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 10;
+	padding: 20px 0;
+	margin: 0;
+}

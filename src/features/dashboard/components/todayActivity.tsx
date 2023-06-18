@@ -16,8 +16,8 @@ const TodayActivity: FC<ITodayActivity> = ({ userActivity }) => {
 	};
 	return (
 		<div className='activity-wrapper'>
-			<h3 className='font-size--lg line-height--32 mt--20'>Today's Activity</h3>
-			<div className='flex align-items--center justify-content--between mt--30'>
+			<h3 className='activity-title font-size--lg line-height--32 mt--20'>Today's Activity</h3>
+			<div className='activity-info flex align-items--center justify-content--between mt--30'>
 				<Lottie options={defaultOptions} height={150} width={150} />
 				<div>
 					{!isEmpty(userActivity) &&
@@ -27,8 +27,12 @@ const TodayActivity: FC<ITodayActivity> = ({ userActivity }) => {
 								<div key={index} className='activity-details-wrapper flex mb--20'>
 									<DotIcon className={`${className}`} />
 									<div>
-										<h3 className='font-size--browser-default font--medium'>{name}</h3>
-										<p className='font-size--xxs text--light-grey'>{duration} Minutes</p>
+										<h3 className='activity-details-title font-size--browser-default font--medium'>
+											{name}
+										</h3>
+										<p className='activity-details-duration  font-size--xxs text--light-grey'>
+											{duration} Minutes
+										</p>
 									</div>
 								</div>
 							);

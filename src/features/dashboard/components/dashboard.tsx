@@ -124,7 +124,7 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 	return (
 		<div className='dashboard-container flex'>
 			<div className='dashboard-wrapper'>
-				<p className='font-size--24 ml--20 mt--20'>Dashboard</p>
+				<p className='dashboard-title font-size--24 ml--20 mt--20'>Dashboard</p>
 
 				<div className='user-title-wrapper mb--30 mt--30 mr--20 ml--20 flex align-items--center justify-content--between'>
 					<div>
@@ -136,9 +136,9 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 					</div>
 				</div>
 
-				<div className='flex'>
+				<div className='data-chart flex'>
 					{activityData ? <PlusChart activityData={activityData} /> : <Spinner />}
-					<div className='flex flex--column'>
+					<div className='user-steps-wrapper flex flex--column'>
 						{userDailySteps &&
 							userDailySteps.map(({ values, text, image }, index: number) => {
 								return (
@@ -147,7 +147,9 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 											<img src={image} className='width--full height--full' />
 										</div>
 										<div className='ml--30'>
-											<h3 className='font-size--browser-default font--semi-bold'>{values}</h3>
+											<h3 className='activity-list-name  font-size--browser-default font--semi-bold'>
+												{values}
+											</h3>
 											<p className='font-size--xxs text--light-grey'>{text}</p>
 										</div>
 									</div>
@@ -155,7 +157,7 @@ const Dashboard: FC<IFitnessActivity> = ({ userFitnessActivity }) => {
 							})}
 					</div>
 				</div>
-				<div className='flex'>
+				<div className='today-activity-wrapper flex'>
 					<TodayActivity userActivity={userActivity} />
 					<WeeklyActivity weeklyActivity={weeklyActivity} />
 				</div>
