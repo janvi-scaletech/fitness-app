@@ -15,29 +15,17 @@ import UserProfile from 'features/dashboard/components/userProfile';
 import MyProfile from 'features/dashboard/components/myProfile';
 
 const App: React.FC = () => {
-	const isLogin: boolean = useSelector((state: IState) => state.auth.isLogin);
-
-	if (!isLogin) {
-		return (
-			<Layout>
-				<Routes>
-					<Route path='/' element={<DashboardContainer />} />
-					<Route path='/activity' element={<ActivityContainer />} />
-					<Route path='/activity/:activityId' element={<Activity />} />
-					<Route path='/profile' element={<MyProfile />} />
-				</Routes>
-			</Layout>
-		);
-	} else {
-		return (
+	return (
+		<Layout>
 			<Routes>
-				<Route path='/login' element={<Login />} />
-				<Route path='/forgot-password' element={<ForgotPassword />} />
-				<Route path='/reset-password/:token' element={<ResetPassword />} />
-				<Route path='*' element={<Navigate replace to='/login' />} />
+				<Route path='/' element={<DashboardContainer />} />
+				<Route path='/activity' element={<ActivityContainer />} />
+				<Route path='/activity/:activityId' element={<Activity />} />
+				<Route path='/profile' element={<MyProfile />} />
+				<Route path='*' element={<Navigate replace to='/' />} />
 			</Routes>
-		);
-	}
+		</Layout>
+	);
 };
 
 export default App;
