@@ -13,7 +13,7 @@ const ActivityContainer = () => {
 	return (
 		<div className='user-activity-container'>
 			<p className='dashboard-title font-size--24 ml--20 mt--20'>Activity List</p>
-			<div className='user-activity-wrapper flex flex--wrap '>
+			<div className='user-activity-wrapper flex flex--wrap justify-content--center'>
 				{userActivityData.map((activityList, index) => {
 					return (
 						<div

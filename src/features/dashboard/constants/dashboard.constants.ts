@@ -42,6 +42,11 @@ export const LINE_OPTIONS = {
 		tooltip: {
 			displayColors: false
 		}
+	},
+	elements: {
+		line: {
+			tension: 0.4
+		}
 	}
 };
 
